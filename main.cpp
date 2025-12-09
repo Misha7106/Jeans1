@@ -7,26 +7,56 @@ using namespace std;
 
 vector<string> createTestData() {
     vector<string> data;
-    data.push_back("Строка 1 - тестовые данные");
-    data.push_back("Строка 2 - для отладки функций");
-    data.push_back("Строка 3 - вывод на экран");
-    data.push_back("Строка 4 - запись в файл");
-    data.push_back("Строка 5 - конец теста");
+    data.push_back("Г‘ГІГ°Г®ГЄГ  1 - ГІГҐГ±ГІГ®ГўГ»ГҐ Г¤Г Г­Г­Г»ГҐ");
+    data.push_back("Г‘ГІГ°Г®ГЄГ  2 - Г¤Г«Гї Г®ГІГ«Г Г¤ГЄГЁ ГґГіГ­ГЄГ¶ГЁГ©");
+    data.push_back("Г‘ГІГ°Г®ГЄГ  3 - ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­");
+    data.push_back("Г‘ГІГ°Г®ГЄГ  4 - Г§Г ГЇГЁГ±Гј Гў ГґГ Г©Г«");
+    data.push_back("Г‘ГІГ°Г®ГЄГ  5 - ГЄГ®Г­ГҐГ¶ ГІГҐГ±ГІГ ");
     return data;
 }
 
-// Функция № 1: Чтение строк из файла в вектор
+// Г”ГіГ­ГЄГ¶ГЁГї В№ 1: Г—ГІГҐГ­ГЁГҐ Г±ГІГ°Г®ГЄ ГЁГ§ ГґГ Г©Г«Г  Гў ГўГҐГЄГІГ®Г°
 vector<string> readLinesFromFile(const string& filename) {
-    // Здесь будет код для чтения строк из файла
     vector<string> lines;
-    // TODO: Реализовать чтение из файла
+
+
+    ifstream File(filename);
+
+
+    if (!File.is_open()) {
+        cout << "ГЋГёГЁГЎГЄГ : Г­ГҐ ГіГ¤Г Г«Г®Г±Гј Г®ГІГЄГ°Г»ГІГј ГґГ Г©Г«" << endl;
+        return lines;
+    }
+
+    string line;
+    while (getline(File, line)) {
+        lines.push_back(line);
+    }
+
+    File.close();
+
+    cout << "\n=== Г’Г…Г‘Г’Г€ГђГЋГ‚ГЂГЌГ€Г… readLinesFromFile ===" << endl;
+    cout << "Г”Г Г©Г«: " << filename << endl;
+    cout << "ГЏГ°Г®Г·ГЁГІГ Г­Г® Г±ГІГ°Г®ГЄ: " << lines.size() << endl;
+    cout << "Г‘Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГҐ ГўГҐГЄГІГ®Г°Г :" << endl;
+
+    if (lines.empty()) {
+        cout << "  (ГўГҐГЄГІГ®Г° ГЇГіГ±ГІ)" << endl;
+    } else {
+        for (size_t i = 0; i < lines.size(); ++i) {
+            cout << "  [" << i << "] \"" << lines[i] << "\"" << endl;
+        }
+    }
+    cout << "===================================\n" << endl;
+    // === ГЉГЋГЌГ…Г– Г‚ГђГ…ГЊГ…ГЌГЌГЋГѓГЋ ГЉГЋГ„ГЂ ===
+
     return lines;
 }
 
-// Функция № 2: Вывод строк на экран
+// Г”ГіГ­ГЄГ¶ГЁГї В№ 2: Г‚Г»ГўГ®Г¤ Г±ГІГ°Г®ГЄ Г­Г  ГЅГЄГ°Г Г­
 void printLines(const vector<string>& lines) {
     if (lines.empty()) {
-        cout << "Нет данных для вывода" << endl;
+        cout << "ГЌГҐГІ Г¤Г Г­Г­Г»Гµ Г¤Г«Гї ГўГ»ГўГ®Г¤Г " << endl;
         return;
     }
 
@@ -35,16 +65,16 @@ void printLines(const vector<string>& lines) {
     }
 }
 
-// Функция № 3: Запись строк в файл
+// Г”ГіГ­ГЄГ¶ГЁГї В№ 3: Г‡Г ГЇГЁГ±Гј Г±ГІГ°Г®ГЄ Гў ГґГ Г©Г«
 void writeLinesToFile(const vector<string>& lines, const string& filename) {
     if (lines.empty()) {
-        cerr << "Ошибка: вектор пуст" << endl;
+        cerr << "ГЋГёГЁГЎГЄГ : ГўГҐГЄГІГ®Г° ГЇГіГ±ГІ" << endl;
         return;
     }
 
     ofstream file(filename);
     if (!file) {
-        cerr << "Ошибка открытия файла: " << filename << endl;
+        cerr << "ГЋГёГЁГЎГЄГ  Г®ГІГЄГ°Г»ГІГЁГї ГґГ Г©Г«Г : " << filename << endl;
         return;
     }
 
@@ -57,18 +87,18 @@ void writeLinesToFile(const vector<string>& lines, const string& filename) {
 
 int main() {
 
-    setlocale(LC_ALL, "russian");
-    // Последовательный вызов трех функций
+    setlocale(LC_ALL, "Russian");
+    // ГЏГ®Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г»Г© ГўГ»Г§Г®Гў ГІГ°ГҐГµ ГґГіГ­ГЄГ¶ГЁГ©
     string inputFilename = "input.txt";
     string outputFilename = "output.txt";
 
-    // Вызов функции № 1
+    // Г‚Г»Г§Г®Гў ГґГіГ­ГЄГ¶ГЁГЁ В№ 1
     vector<string> lines = readLinesFromFile(inputFilename);
 
-    // Вызов функции № 2
+    // Г‚Г»Г§Г®Гў ГґГіГ­ГЄГ¶ГЁГЁ В№ 2
     printLines(lines);
 
-    // Вызов функции № 3
+    // Г‚Г»Г§Г®Гў ГґГіГ­ГЄГ¶ГЁГЁ В№ 3
     writeLinesToFile(lines, outputFilename);
 
     return 0;
