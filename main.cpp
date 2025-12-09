@@ -23,6 +23,23 @@ vector<string> readLinesFromFile(const string& filename) {
     }
 
     File.close();
+
+    cout << "\n=== ÒÅÑÒÈÐÎÂÀÍÈÅ readLinesFromFile ===" << endl;
+    cout << "Ôàéë: " << filename << endl;
+    cout << "Ïðî÷èòàíî ñòðîê: " << lines.size() << endl;
+    cout << "Ñîäåðæèìîå âåêòîðà:" << endl;
+
+    if (lines.empty()) {
+        cout << "  (âåêòîð ïóñò)" << endl;
+    } else {
+        for (size_t i = 0; i < lines.size(); ++i) {
+            cout << "  [" << i << "] \"" << lines[i] << "\"" << endl;
+        }
+    }
+    cout << "===================================\n" << endl;
+    // === ÊÎÍÅÖ ÂÐÅÌÅÍÍÎÃÎ ÊÎÄÀ ===
+
+    return lines;
 }
 
 // Ôóíêöèÿ ¹ 2: Âûâîä ñòðîê íà ýêðàí
