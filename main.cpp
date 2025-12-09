@@ -1,9 +1,42 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
-int main()
-{
-    cout << "Hello world!" << endl;
+// Функция № 1: Чтение строк из файла в вектор
+vector<string> readLinesFromFile(const string& filename) {
+    // Здесь будет код для чтения строк из файла
+    vector<string> lines;
+    // TODO: Реализовать чтение из файла
+    return lines;
+}
+
+// Функция № 2: Вывод строк на экран
+void printLines(const vector<string>& lines) {
+    // Здесь будет код для вывода строк на экран
+    // TODO: Реализовать вывод на экран
+}
+
+// Функция № 3: Запись строк в файл
+void writeLinesToFile(const vector<string>& lines, const string& filename) {
+    // Здесь будет код для записи строк в файл
+    // TODO: Реализовать запись в файл
+}
+
+int main() {
+    // Последовательный вызов трех функций
+    string inputFilename = "input.txt";
+    string outputFilename = "output.txt";
+
+    // Вызов функции № 1
+    vector<string> lines = readLinesFromFile(inputFilename);
+
+    // Вызов функции № 2
+    printLines(lines);
+
+    // Вызов функции № 3
+    writeLinesToFile(lines, outputFilename);
+
     return 0;
 }
