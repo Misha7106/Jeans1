@@ -6,10 +6,16 @@ using namespace std;
 
 // Функция № 1: Чтение строк из файла в вектор
 vector<string> readLinesFromFile(const string& filename) {
-    // Здесь будет код для чтения строк из файла
     vector<string> lines;
-    // TODO: Реализовать чтение из файла
-    return lines;
+
+
+    ifstream File(filename);
+
+
+    if (!File.is_open()) {
+        cout << "Ошибка: не удалось открыть файл" << endl;
+        return lines;
+    }
 }
 
 // Функция № 2: Вывод строк на экран
@@ -25,6 +31,7 @@ void writeLinesToFile(const vector<string>& lines, const string& filename) {
 }
 
 int main() {
+    setlocale(LC_ALL, "Russian");
     // Последовательный вызов трех функций
     string inputFilename = "input.txt";
     string outputFilename = "output.txt";
