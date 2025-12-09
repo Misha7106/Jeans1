@@ -16,6 +16,13 @@ vector<string> readLinesFromFile(const string& filename) {
         cout << "Ошибка: не удалось открыть файл" << endl;
         return lines;
     }
+
+    string line;
+    while (getline(File, line)) {
+        lines.push_back(line);
+    }
+
+    File.close();
 }
 
 // Функция № 2: Вывод строк на экран
